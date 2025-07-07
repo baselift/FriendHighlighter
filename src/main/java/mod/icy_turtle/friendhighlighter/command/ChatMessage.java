@@ -47,13 +47,13 @@ public class ChatMessage
 	 * @return this message
 	 * @see #removeFromChat() 
 	 * @see #updateContent() 
-	 * @see net.minecraft.entity.player.PlayerEntity#sendMessage(Text) 
+	 * @see net.minecraft.entity.player.PlayerEntity#sendMessage(Text, boolean)
 	 */
 	public int sendInChat()
 	{
 		removeFromChat();
 		updateContent();
-		MinecraftClient.getInstance().player.sendMessage(content);
+		MinecraftClient.getInstance().player.sendMessage(content, true);
 		return Command.SINGLE_SUCCESS;
 	}
 }

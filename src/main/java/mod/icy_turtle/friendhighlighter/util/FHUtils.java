@@ -179,8 +179,8 @@ public class FHUtils
 		MutableText txt = Text.literal("");
 		txt.append(input);
 		txt.styled(style -> style
-				.withClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, withQuotes ? "\""+txt.getString()+"\"" : txt.getString()))
-				.withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.of("Click to copy!"))));
+				.withClickEvent(new ClickEvent.CopyToClipboard(withQuotes ? "\""+txt.getString()+"\"" : txt.getString()))
+				.withHoverEvent(new HoverEvent.ShowText(Text.of("Click to copy!"))));
 		return txt;
 	}
 
