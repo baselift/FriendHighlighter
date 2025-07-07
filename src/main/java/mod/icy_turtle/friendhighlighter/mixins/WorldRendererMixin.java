@@ -3,8 +3,6 @@ package mod.icy_turtle.friendhighlighter.mixins;
 import mod.icy_turtle.friendhighlighter.FriendHighlighter;
 import mod.icy_turtle.friendhighlighter.config.FHSettings;
 import mod.icy_turtle.friendhighlighter.config.FriendsListHandler;
-import mod.icy_turtle.friendhighlighter.config.HighlightedBase;
-import mod.icy_turtle.friendhighlighter.config.HighlightedEntity;
 import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -17,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public abstract class WorldRendererMixin
 {
 	//	changes which color the entitiy should be highlighted in.
-	@Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;getTeamColorValue()I"))
+	@Redirect(method = "renderEntities", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;getTeamColorValue()I"))
 	private int forceHighlightColor(Entity entity)
 	{
 		if(FriendHighlighter.isHighlighterEnabled && FHSettings.getSettings().highlightMobsYouHit && entity instanceof LivingEntity le)
