@@ -58,9 +58,9 @@ public abstract class EntityRendererMixin<T extends Entity, S extends EntityRend
         var friend = FriendsListHandler.getFriendFromEntity(entity);
         if(FriendsListHandler.shouldHighlightEntity(entity))
         {
-            return FHUtils.getBoldAndColored(entity.getDisplayName().getString(), friend.getColor());
+            return FHUtils.getBoldAndColored(state.displayName.getString(), friend.getColor());
         }
-        return entity.getDisplayName();
+        return state.displayName;
     }
 
     // forces nametag overlay to be transparent and forces nametag visibilty

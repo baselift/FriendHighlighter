@@ -53,7 +53,7 @@ public class ChatMessage
 	{
 		removeFromChat();
 		updateContent();
-		MinecraftClient.getInstance().player.sendMessage(content, true);
+		MinecraftClient.getInstance().player.sendMessage(content, false);
 		return Command.SINGLE_SUCCESS;
 	}
 }
